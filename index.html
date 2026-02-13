@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Happy Valentine Day, Budi 💖</title>
-
     <style>
         body {
             margin: 0;
@@ -80,9 +79,15 @@
             0% { transform: translateY(0) rotate(45deg); opacity: 1; }
             100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
         }
+
+        /* YouTube container initially hidden */
+        #youtubeContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
-
 <body>
 
 <h1>Happy Valentine Day, Budi 💖</h1>
@@ -102,8 +107,17 @@
 
 <div id="gifContainer"></div>
 
-<script>
+<!-- YouTube embed for Nepali song -->
+<div id="youtubeContainer">
+  <iframe id="bgVideo" width="360" height="200"
+    src="https://www.youtube.com/embed/gD5PvB9PUfA?enablejsapi=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
 
+<script>
 let noCount = 0;
 
 function yesClicked() {
@@ -119,6 +133,12 @@ function yesClicked() {
          <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">`;
 
     createHearts();
+
+    // Show and autoplay YouTube Nepali song
+    const ytDiv = document.getElementById("youtubeContainer");
+    ytDiv.style.display = "block";
+    const ytIframe = document.getElementById("bgVideo");
+    ytIframe.src += "&autoplay=1";
 }
 
 function noClicked() {
@@ -156,8 +176,9 @@ function createHearts() {
         setTimeout(() => { heart.remove(); }, 6000);
     }, 300);
 }
-
 </script>
 
 </body>
 </html>
+
+
