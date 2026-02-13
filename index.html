@@ -89,7 +89,7 @@
     From the moment you entered my life, everything started feeling brighter.
     You are my comfort after long days, my happiness in small things,
     and the person who makes my ordinary moments feel special.
-    Loving you isn’t something I have to think about—it’s something my heart has always known.
+    Loving you is not just a feeling — it’s a decision I make every single day.
     Today, tomorrow, and always… will you be my Valentine? 💍❤️
 </div>
 
@@ -120,3 +120,51 @@ function yesClicked() {
         `<img src="https://media.giphy.com/media/3o6ZsY4fXXc8ZmnKIo/giphy.gif">
          <br>
          <img src="https://media.giphy.com/media/l0Exk8EUzSLsrErEQ/giphy.gif">`;
+
+    createHearts();
+
+    // Play Nepali song
+    const music = document.getElementById("bgMusic");
+    music.play();
+}
+
+function noClicked() {
+    noCount++;
+
+    const messages = [
+        "If you say no, I’ll just fall in love with you all over again tomorrow 💖",
+        "Maybe your finger slipped… because our hearts already decided yes long ago ❤️",
+        "No matter what you press, you’ll always be my favorite person in this whole world 😘",
+        "I’ll stay right here loving you gently… until you feel ready to press YES 💕"
+    ];
+
+    // Original NO GIFs unchanged
+    const gifs = [
+        "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif",
+        "https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif",
+        "https://media.giphy.com/media/3o6wrvdHFbwBrUFenu/giphy.gif",
+        "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif"
+    ];
+
+    document.getElementById("message").innerHTML =
+        messages[Math.min(noCount-1, messages.length-1)];
+
+    document.getElementById("gifContainer").innerHTML =
+        `<img src="${gifs[Math.min(noCount-1, gifs.length-1)]}">`;
+}
+
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        heart.style.animationDuration = (3 + Math.random()*3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => { heart.remove(); }, 6000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
